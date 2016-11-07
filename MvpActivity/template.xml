@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<template
+    format="5"
+    revision="5"
+    name="MVP Activity"
+    minApi="7"
+    minBuildApi="14"
+    description="Creates a new mvp activity">
+
+    <category value="Test" />
+    <formfactor value="Mobile" />
+
+    <parameter
+        id="activityName"
+        name="Activity Name"
+        type="string"
+        constraints="class|unique|nonempty"
+        suggest="${layoutToActivity(layoutName)}"
+        default="MainActivity"
+        help="The name of the activity class to create" />
+
+    <parameter
+        id="fragmentName"
+        name="Fragment Name"
+        type="string"
+        constraints="class|unique|nonempty"
+        default="MainFragment"
+        help="The name of the fragment class to create" />
+
+    <parameter
+        id="contractName"
+        name="Contract Name"
+        type="string"
+        constraints="class|unique|nonempty"
+        default="MainContract"
+        help="MVP 契约类" />
+
+    <parameter
+        id="presenterName"
+        name="Presenter Name"
+        type="string"
+        constraints="class|unique|nonempty"
+        default="MainPresenter"
+        help="Presenter" />
+
+    <parameter
+        id="contentLayoutName"
+        name="Fragment Layout Name"
+        type="string"
+        constraints="layout|unique|nonempty"
+        default="fragment_main"
+        help="The name of the layout to create for the fragment" />
+
+    <parameter
+        id="activityLayoutName"
+        name="Activity Layout Name"
+        type="string"
+        constraints="layout|unique|nonempty"
+        suggest="${activityToLayout(activityName)}"
+        default="activity_main"
+        help="The name of the layout to create for the activity" />
+    
+    <parameter
+        id="packageName"
+        name="Package name"
+        type="string"
+        constraints="package"
+        default="com.mycompany.myapp" />
+
+    <!-- 128x128 thumbnails relative to template.xml -->
+    <thumbs>
+        <!-- default thumbnail is required -->
+        <thumb>template_blank_activity.png</thumb>
+    </thumbs>
+
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+
+</template>
